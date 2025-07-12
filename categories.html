@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Categories - Wooden Dreams</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Google Fonts - Poppins -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="navbar navbar-expand-lg">
+            <div class="container">
+                <a class="navbar-brand" href="index.html">
+                    <div class="logo">
+                        <img src="attached_assets/Group 206_1752297266987.png" alt="Wooden Dreams Logo" class="logo-icon">
+                        <span class="logo-text">Wooden Dreams</span>
+                    </div>
+                </a>
+                
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav mx-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="about.html">About Us</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="categories.html">Categories</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="shop.html">Shop</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="blog.html">Blog</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="contact.html">Contact</a>
+                        </li>
+                    </ul>
+                    
+                    <div class="navbar-actions">
+                        <button class="btn-action" onclick="openAuthModal()">
+                            <i class="fas fa-user"></i>
+                            <span>Sign Up / Sign In</span>
+                        </button>
+                        <button class="btn-action" onclick="toggleSearch()">
+                            <i class="fas fa-search"></i>
+                            <span>Search</span>
+                        </button>
+                        <button class="btn-action" onclick="toggleCart()">
+                            <i class="fas fa-shopping-cart"></i>
+                            <span>Cart</span>
+                            <span class="cart-count" id="cartCount">0</span>
+                        </button>
+                        <button class="btn-action">
+                            <i class="fas fa-heart"></i>
+                            <span>Likes</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <h1 class="page-title">Categories</h1>
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                            <li class="breadcrumb-item active">Categories</li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Categories Grid -->
+    <section class="categories-grid py-5">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6">
+                    <div class="category-card large">
+                        <div class="category-image">
+                            <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=500&h=400&fit=crop" alt="Living Room" class="img-fluid">
+                        </div>
+                        <div class="category-overlay">
+                            <div class="category-content">
+                                <h3>Living Room</h3>
+                                <p>Comfortable seating and elegant tables</p>
+                                <a href="shop.html?category=living" class="btn btn-primary">Explore</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 col-md-6">
+                    <div class="category-card large">
+                        <div class="category-image">
+                            <img src="https://images.unsplash.com/photo-1560185007-cde436f6a4d0?w=500&h=400&fit=crop" alt="Bedroom" class="img-fluid">
+                        </div>
+                        <div class="category-overlay">
+                            <div class="category-content">
+                                <h3>Bedroom</h3>
+                                <p>Peaceful furniture for restful nights</p>
+                                <a href="shop.html?category=bedroom" class="btn btn-primary">Explore</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 col-md-6">
+                    <div class="category-card large">
+                        <div class="category-image">
+                            <img src="https://images.unsplash.com/photo-1506439773649-6e0eb8cfb237?w=500&h=400&fit=crop" alt="Dining Room" class="img-fluid">
+                        </div>
+                        <div class="category-overlay">
+                            <div class="category-content">
+                                <h3>Dining Room</h3>
+                                <p>Tables and chairs for family gatherings</p>
+                                <a href="shop.html?category=dining" class="btn btn-primary">Explore</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-6 col-md-6">
+                    <div class="category-card medium">
+                        <div class="category-image">
+                            <img src="https://images.unsplash.com/photo-1549497538-303791108f95?w=600&h=300&fit=crop" alt="Office" class="img-fluid">
+                        </div>
+                        <div class="category-overlay">
+                            <div class="category-content">
+                                <h3>Office</h3>
+                                <p>Professional workspace furniture</p>
+                                <a href="shop.html?category=office" class="btn btn-primary">Explore</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-6 col-md-6">
+                    <div class="category-card medium">
+                        <div class="category-image">
+                            <img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=600&h=300&fit=crop" alt="Storage" class="img-fluid">
+                        </div>
+                        <div class="category-overlay">
+                            <div class="category-content">
+                                <h3>Storage</h3>
+                                <p>Cabinets and shelving solutions</p>
+                                <a href="shop.html?category=storage" class="btn btn-primary">Explore</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Collections Section -->
+    <section class="collections py-5 bg-light">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="section-title">Our Collections</h2>
+                <p class="section-subtitle">Discover our carefully curated furniture collections</p>
+            </div>
+            
+            <div class="row g-4">
+                <div class="col-lg-3 col-md-6">
+                    <div class="collection-card">
+                        <div class="collection-image">
+                            <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=300&h=200&fit=crop" alt="American Collection" class="img-fluid">
+                        </div>
+                        <div class="collection-content">
+                            <h4>American Collection</h4>
+                            <p>Classic American style furniture</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-3 col-md-6">
+                    <div class="collection-card">
+                        <div class="collection-image">
+                            <img src="https://images.unsplash.com/photo-1560185007-cde436f6a4d0?w=300&h=200&fit=crop" alt="Indian Collection" class="img-fluid">
+                        </div>
+                        <div class="collection-content">
+                            <h4>Indian Collection</h4>
+                            <p>Traditional Indian craftsmanship</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-3 col-md-6">
+                    <div class="collection-card">
+                        <div class="collection-image">
+                            <img src="https://images.unsplash.com/photo-1506439773649-6e0eb8cfb237?w=300&h=200&fit=crop" alt="Tamilnadu Collection" class="img-fluid">
+                        </div>
+                        <div class="collection-content">
+                            <h4>Tamilnadu Collection</h4>
+                            <p>Regional artistry and heritage</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-3 col-md-6">
+                    <div class="collection-card">
+                        <div class="collection-image">
+                            <img src="https://images.unsplash.com/photo-1549497538-303791108f95?w=300&h=200&fit=crop" alt="Emperor Collection" class="img-fluid">
+                        </div>
+                        <div class="collection-content">
+                            <h4>Emperor Collection</h4>
+                            <p>Luxury and grandeur combined</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-3 col-md-6">
+                    <div class="footer-brand">
+                        <div class="logo mb-3">
+                            <img src="attached_assets/Group 206_1752297266987.png" alt="Wooden Dreams Logo" class="logo-icon">
+                            <span class="logo-text">Wooden Dreams</span>
+                        </div>
+                        <p>"At Wooden Dreams, we craft furniture that brings warmth and comfort to your home. Our wooden creations are designed to inspire sweet dreams and peaceful nights.Every piece is carefully crafted to provide a haven of relaxation and tranquility. Sleep tight, dream big with Wooden Dreams."</p>
+                        <div class="contact-info">
+                            <div class="contact-item">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span>Head Office 13/5 Post office apposite, Chennai 876543</span>
+                            </div>
+                            <div class="contact-item">
+                                <i class="fas fa-globe"></i>
+                                <span>www.woodendreams.in</span>
+                            </div>
+                            <div class="contact-item">
+                                <i class="fas fa-envelope"></i>
+                                <span>woodendreams@gamil.com</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-6">
+                    <div class="footer-links">
+                        <h5>LINKS</h5>
+                        <ul>
+                            <li><a href="index.html">Home</a></li>
+                            <li><a href="about.html">About</a></li>
+                            <li><a href="categories.html">Categories</a></li>
+                            <li><a href="shop.html">Shop</a></li>
+                            <li><a href="blog.html">Blog</a></li>
+                            <li><a href="contact.html">Contact</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-6">
+                    <div class="footer-links">
+                        <h5>HELP</h5>
+                        <ul>
+                            <li><a href="#">Payment Options</a></li>
+                            <li><a href="#">Returns</a></li>
+                            <li><a href="#">Privacy Policies</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-5 col-md-6">
+                    <div class="footer-newsletter">
+                        <h5>Subscribe</h5>
+                        <div class="newsletter-form">
+                            <input type="email" placeholder="Enter your email" class="form-control">
+                            <button type="submit" class="btn btn-primary">SIGN UP</button>
+                        </div>
+                        <div class="social-links mt-4">
+                            <span>Follow Us</span>
+                            <div class="social-icons">
+                                <a href="#"><i class="fab fa-instagram"></i></a>
+                                <a href="#"><i class="fab fa-google"></i></a>
+                                <a href="#"><i class="fab fa-facebook"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr class="footer-divider">
+            <div class="footer-bottom">
+                <p>2025 Wooden Dreams. All rights reserved</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Custom JS -->
+    <script src="js/script.js"></script>
+</body>
+</html>

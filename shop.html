@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop - Wooden Dreams</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Google Fonts - Poppins -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="navbar navbar-expand-lg">
+            <div class="container">
+                <a class="navbar-brand" href="index.html">
+                    <div class="logo">
+                        <img src="attached_assets/Group 206.png" alt="Wooden Dreams Logo" class="logo-icon">
+                        <span class="logo-text">Wooden Dreams</span>
+                    </div>
+                </a>
+                
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav mx-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="about.html">About Us</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="categories.html">Categories</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="shop.html">Shop</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="blog.html">Blog</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="contact.html">Contact</a>
+                        </li>
+                    </ul>
+                    
+                    <div class="navbar-actions">
+                        <button class="btn-action" onclick="openAuthModal()">
+                            <i class="fas fa-user"></i>
+                            <span>Sign Up / Sign In</span>
+                        </button>
+                        <button class="btn-action" onclick="toggleSearch()">
+                            <i class="fas fa-search"></i>
+                            <span>Search</span>
+                        </button>
+                        <button class="btn-action" onclick="toggleCart()">
+                            <i class="fas fa-shopping-cart"></i>
+                            <span>Cart</span>
+                            <span class="cart-count" id="cartCount">0</span>
+                        </button>
+                        <button class="btn-action">
+                            <i class="fas fa-heart"></i>
+                            <span>Likes</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="hero-background">
+            <img src="attached_assets/Rectangle 283.png" alt="Shop Background" class="hero-bg-image">
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="page-hero-content">
+                        <h1 class="page-title">Shop</h1>
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                                <li class="breadcrumb-item active">Shop</li>
+                            </ol>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Shop Controls -->
+    <section class="shop-controls py-4 bg-light">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <div class="shop-info">
+                        <button class="btn btn-outline-primary me-3" onclick="toggleFilter()">
+                            <i class="fas fa-filter"></i> Filter
+                        </button>
+                        <span class="results-count">Showing 1-16 of 32 results</span>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="shop-actions d-flex justify-content-end">
+                        <div class="sort-dropdown me-3">
+                            <select class="form-select" id="sortBy">
+                                <option value="default">Default</option>
+                                <option value="best-seller">Best Seller</option>
+                                <option value="price-low">Price (Low to High)</option>
+                                <option value="price-high">Price (High to Low)</option>
+                                <option value="name-az">Product Name (A to Z)</option>
+                                <option value="recommended">Recommended</option>
+                            </select>
+                        </div>
+                        <div class="view-toggle">
+                            <button class="btn btn-outline-secondary active" data-view="grid">
+                                <i class="fas fa-th"></i>
+                            </button>
+                            <button class="btn btn-outline-secondary" data-view="list">
+                                <i class="fas fa-list"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section class="products py-5">
+        <div class="container">
+            <div class="row g-4" id="productGrid">
+                <!-- Products will be dynamically loaded -->
+            </div>
+            
+            <!-- Pagination -->
+            <nav aria-label="Product pagination" class="mt-5">
+                <ul class="pagination justify-content-center">
+                    <li class="page-item disabled">
+                        <a class="page-link" href="#" aria-label="Previous">
+                            <span aria-hidden="true">&laquo;</span>
+                        </a>
+                    </li>
+                    <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                    <li class="page-item">
+                        <a class="page-link" href="#" aria-label="Next">
+                            <span aria-hidden="true">&raquo;</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </section>
+
+    <!-- Filter Sidebar -->
+    <div class="filter-sidebar" id="filterSidebar">
+        <div class="filter-header">
+            <h5><i class="fas fa-filter"></i> Filter</h5>
+            <button class="btn-close-filter" onclick="toggleFilter()">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        
+        <div class="filter-content">
+            <!-- Sort By -->
+            <div class="filter-section">
+                <h6>Short By</h6>
+                <div class="filter-options">
+                    <label class="filter-option">
+                        <input type="radio" name="sortBy" value="best-seller">
+                        <span>Best Seller</span>
+                    </label>
+                    <label class="filter-option">
+                        <input type="radio" name="sortBy" value="price-high">
+                        <span>Price (High to Low)</span>
+                    </label>
+                    <label class="filter-option">
+                        <input type="radio" name="sortBy" value="price-low">
+                        <span>Price (Low to High)</span>
+                    </label>
+                    <label class="filter-option">
+                        <input type="radio" name="sortBy" value="name-az">
+                        <span>Product Name (A to z)</span>
+                    </label>
+                    <label class="filter-option">
+                        <input type="radio" name="sortBy" value="recommended">
+                        <span>Recommended</span>
+                    </label>
+                    <label class="filter-option">
+                        <input type="radio" name="sortBy" value="default" checked>
+                        <span class="underline">Default</span>
+                    </label>
+                </div>
+            </div>
+
+            <!-- Material -->
+            <div class="filter-section">
+                <h6>Material</h6>
+                <div class="filter-options">
+                    <label class="filter-option">
+                        <input type="checkbox" name="material" value="leatherette">
+                        <span>Leatherette</span>
+                    </label>
+                    <label class="filter-option">
+                        <input type="checkbox" name="material" value="half-leather">
+                        <span>Half Leather</span>
+                    </label>
+                    <label class="filter-option">
+                        <input type="checkbox" name="material" value="foam">
+                        <span>Foam</span>
+                    </label>
+                    <label class="filter-option">
+                        <input type="checkbox" name="material" value="sheesham">
+                        <span>Sheesham</span>
+                    </label>
+                    <label class="filter-option">
+                        <input type="checkbox" name="material" value="solid-wood">
+                        <span class="underline">Solid Wood</span>
+                    </label>
+                </div>
+            </div>
+
+            <!-- Country Collection -->
+            <div class="filter-section">
+                <h6>Country Collection</h6>
+                <div class="filter-options">
+                    <label class="filter-option">
+                        <input type="checkbox" name="collection" value="american">
+                        <span>American Collection</span>
+                    </label>
+                    <label class="filter-option">
+                        <input type="checkbox" name="collection" value="indian">
+                        <span class="underline">Indian Collection</span>
+                    </label>
+                    <label class="filter-option">
+                        <input type="checkbox" name="collection" value="tamilnadu">
+                        <span>Tamilnadu Collection</span>
+                    </label>
+                    <label class="filter-option">
+                        <input type="checkbox" name="collection" value="emperor">
+                        <span>Emperor Collection</span>
+                    </label>
+                    <label class="filter-option">
+                        <input type="checkbox" name="collection" value="italian">
+                        <span>Italian Collection</span>
+                    </label>
+                    <label class="filter-option">
+                        <input type="checkbox" name="collection" value="malaysian">
+                        <span>Malaysian Collection</span>
+                    </label>
+                </div>
+            </div>
+
+            <!-- Seating Capacity -->
+            <div class="filter-section">
+                <h6>Seating Capacity</h6>
+                <div class="filter-options">
+                    <label class="filter-option">
+                        <input type="checkbox" name="seating" value="1">
+                        <span>1 seater</span>
+                    </label>
+                    <label class="filter-option">
+                        <input type="checkbox" name="seating" value="2">
+                        <span>2 seater</span>
+                    </label>
+                    <label class="filter-option">
+                        <input type="checkbox" name="seating" value="3">
+                        <span>3 seater</span>
+                    </label>
+                    <label class="filter-option">
+                        <input type="checkbox" name="seating" value="set">
+                        <span>set</span>
+                    </label>
+                    <label class="filter-option">
+                        <input type="checkbox" name="seating" value="5plus">
+                        <span>5+seater</span>
+                    </label>
+                </div>
+            </div>
+
+            <!-- Price Range -->
+            <div class="filter-section">
+                <h6>Price</h6>
+                <div class="price-range">
+                    <p>Price range :</p>
+                    <p class="price-display">$26,000-$70,000</p>
+                    <div class="range-slider">
+                        <input type="range" min="26000" max="70000" value="26000" class="slider" id="priceRange">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-3 col-md-6">
+                    <div class="footer-brand">
+                        <div class="logo mb-3">
+                            <img src="attached_assets/Group 206_1752297266987.png" alt="Wooden Dreams Logo" class="logo-icon">
+                            <span class="logo-text">Wooden Dreams</span>
+                        </div>
+                        <p>"At Wooden Dreams, we craft furniture that brings warmth and comfort to your home. Our wooden creations are designed to inspire sweet dreams and peaceful nights.Every piece is carefully crafted to provide a haven of relaxation and tranquility. Sleep tight, dream big with Wooden Dreams."</p>
+                        <div class="contact-info">
+                            <div class="contact-item">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span>Head Office 13/5 Post office apposite, Chennai 876543</span>
+                            </div>
+                            <div class="contact-item">
+                                <i class="fas fa-globe"></i>
+                                <span>www.woodendreams.in</span>
+                            </div>
+                            <div class="contact-item">
+                                <i class="fas fa-envelope"></i>
+                                <span>woodendreams@gamil.com</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-6">
+                    <div class="footer-links">
+                        <h5>LINKS</h5>
+                        <ul>
+                            <li><a href="index.html">Home</a></li>
+                            <li><a href="about.html">About</a></li>
+                            <li><a href="categories.html">Categories</a></li>
+                            <li><a href="shop.html">Shop</a></li>
+                            <li><a href="blog.html">Blog</a></li>
+                            <li><a href="contact.html">Contact</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-6">
+                    <div class="footer-links">
+                        <h5>HELP</h5>
+                        <ul>
+                            <li><a href="#">Payment Options</a></li>
+                            <li><a href="#">Returns</a></li>
+                            <li><a href="#">Privacy Policies</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-5 col-md-6">
+                    <div class="footer-newsletter">
+                        <h5>Subscribe</h5>
+                        <div class="newsletter-form">
+                            <input type="email" placeholder="Enter your email" class="form-control">
+                            <button type="submit" class="btn btn-primary">SIGN UP</button>
+                        </div>
+                        <div class="social-links mt-4">
+                            <span>Follow Us</span>
+                            <div class="social-icons">
+                                <a href="#"><i class="fab fa-instagram"></i></a>
+                                <a href="#"><i class="fab fa-google"></i></a>
+                                <a href="#"><i class="fab fa-facebook"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr class="footer-divider">
+            <div class="footer-bottom">
+                <p>2025 Wooden Dreams. All rights reserved</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Filter Overlay -->
+    <div class="filter-overlay" id="filterOverlay" onclick="toggleFilter()"></div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Custom JS -->
+    <script src="js/script.js"></script>
+</body>
+</html>
